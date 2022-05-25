@@ -1,12 +1,14 @@
 Package: eds
-Title: eds: Reader for Alevin's EDS format
-Version: 0.0.1
+Title: eds: Reader for Alevin EDS format
+Version: 0.0.2
 Authors@R: c(
     person("Avi", "Srivastava", role=c("aut","ctb")),
     person("Michael", "Love", role=c("aut","cre"), email="michaelisaiahlove@gmail.com"))
 Maintainer: Michael Love <michaelisaiahlove@gmail.com>
-Description: Reader for Alevin's EDS format.
+Description: Reader for Alevin EDS format.
+Depends: Matrix
 Imports: Rcpp
+Suggests: knitr
 LinkingTo: Rcpp
 SystemRequirements: C++11
 License: GPL-2

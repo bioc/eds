@@ -1,0 +1,13 @@
+---
+title: "eds: Reader for Alevin EDS format"
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
+output: rmarkdown::html_document
+vignette: |
+  %\VignetteIndexEntry{eds: Reader for Alevin EDS format}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Alevin EDS format
+
+This is a vignette stub.

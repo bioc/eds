@@ -2,6 +2,6 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 getSparseMatrix <- function(numOfGenes, numOfOriginalCells, countMatFilename, tierImport = FALSE) {
-    .Call(`_eds_getSparseMatrix`, numOfGenes, numOfOriginalCells, countMatFilename, tierImport)
+    .Call('_eds_getSparseMatrix', PACKAGE = 'eds', numOfGenes, numOfOriginalCells, countMatFilename, tierImport)
 }
 
