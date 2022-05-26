@@ -1,13 +1,75 @@
 ---
-title: "eds: Reader for Alevin EDS format"
+title: "eds: Low-level reader function for Alevin EDS format"
 date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 output: rmarkdown::html_document
 vignette: |
-  %\VignetteIndexEntry{eds: Reader for Alevin EDS format}
+  %\VignetteIndexEntry{eds: Low-level reader function for Alevin EDS format}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-# Alevin EDS format
+# eds package for reading in Alevin EDS format
 
-This is a vignette stub.
+The R package `eds` provides a single function `readEDS` for
+efficiently reading Alevin's EDS format for single cell count data
+into R, utilizing the sparse matrix format in the `Matrix` package.
+
+**Note:** `eds` provides a low-level function `readEDS` which most
+users will not need to use. Most users and developers will likely
+prefer to use `tximport` (for importing matrices) or `tximeta` (for
+easy conversion to *SingleCellExperiment* objects).  This package is
+primarily developed in order to streamline the dependency graph for
+other packages.
+
+# About EDS
+
+EDS is an accronym for *Efficient single cell binary Data Storage*
+format for the cell-feature count matrices.
+
+For more details on the EDS format see the following repository:
+
+<https://github.com/COMBINE-lab/EDS>
+
+# Simple example of reading EDS into R:
+
+The following example is the same as round in `?readEDS`, first we
+point to EDS files as output by Alevin:
+
+```{r}
+library(tximportData)
+library(eds)
+dir0 <- system.file("extdata",package="tximportData")
+samps <- list.files(file.path(dir0, "alevin"))
+dir <- file.path(dir0,"alevin",samps[3],"alevin")
+quant.mat.file <- file.path(dir, "quants_mat.gz")
+barcode.file <- file.path(dir, "quants_mat_rows.txt")
+gene.file <- file.path(dir, "quants_mat_cols.txt")
+```
+
+`readEDS()` requires knowing the number of cells and genes, which we
+find by reading in associated barcode and gene files. Again, note that
+a more useful convenience function for reading in Alevin data is
+`tximport` (matrices) or `tximeta` (for easy conversion to
+SingleCellExperiment). 
+
+```{r}
+cell.names <- readLines(barcode.file)
+gene.names <- readLines(gene.file)
+num.cells <- length(cell.names)
+num.genes <- length(gene.names)
+```
+
+Finally, reading in the sparse matrix is accomplished with:
+
+```{r}
+mat <- readEDS(
+    numOfGenes=num.genes,
+    numOfOriginalCells=num.cells,
+    countMatFilename=quant.mat.file)
+```
+
+# Session info
+
+```{r}
+sessionInfo()
+```

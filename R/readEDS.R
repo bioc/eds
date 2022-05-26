@@ -1,13 +1,22 @@
-#' readEDS - a utility function for quickly reading in Alevin's EDS format
+#' A low-level utility function for quickly reading in
+#' Alevin EDS format
 #'
+#' This provides a simple utility for reading in EDS format.
+#' Note that most users will prefer to use tximport or tximeta.
+#' This function and package exist in order
+#' to simplify the dependency graph for other packages.
+#' 
 #' @param numOfGenes number of genes
 #' @param numOfOriginalCells number of cells
-#' @param countMatFilename pointer to the EDS file, \code{quants_mat.gz}
-#' @param tierImport whether the \code{countMatFilename} refers to a quants tier file
+#' @param countMatFilename pointer to the EDS file,
+#' \code{quants_mat.gz}
+#' @param tierImport whether the \code{countMatFilename}
+#' refers to a quants tier file
 #'
-#' @return a genes x cells sparse matrix, of the class \code{dgCMatrix}
+#' @return a genes x cells sparse matrix,
+#' of the class \code{dgCMatrix}
 #'
-#' @import Rcpp
+#' @import Rcpp Matrix
 #' 
 #' @useDynLib eds
 #'
@@ -28,11 +37,16 @@
 #' num.genes <- length(gene.names)
 #'
 #' # reading in the sparse matrix
-#' mat <- readEDS(numOfGenes=num.genes,
-#'                numOfOriginalCells=num.cells,
-#'                countMatFilename=quant.mat.file)
+#' mat <- readEDS(
+#'     numOfGenes=num.genes,
+#'     numOfOriginalCells=num.cells,
+#'     countMatFilename=quant.mat.file)
 #' 
 #' @export
-readEDS <- function(numOfGenes, numOfOriginalCells, countMatFilename, tierImport=FALSE) {
-  getSparseMatrix(numOfGenes, numOfOriginalCells, path.expand(countMatFilename), tierImport)
+readEDS <- function(numOfGenes,
+                    numOfOriginalCells,
+                    countMatFilename,
+                    tierImport=FALSE) {
+    getSparseMatrix(numOfGenes, numOfOriginalCells,
+                    path.expand(countMatFilename), tierImport)
 }

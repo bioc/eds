@@ -2,7 +2,8 @@
 % Please edit documentation in R/readEDS.R
 \name{readEDS}
 \alias{readEDS}
-\title{readEDS - a utility function for quickly reading in Alevin's EDS format}
+\title{A low-level utility function for quickly reading in
+Alevin EDS format}
 \usage{
 readEDS(numOfGenes, numOfOriginalCells, countMatFilename, tierImport = FALSE)
 }
@@ -11,15 +12,21 @@ readEDS(numOfGenes, numOfOriginalCells, countMatFilename, tierImport = FALSE)
 
 \item{numOfOriginalCells}{number of cells}
 
-\item{countMatFilename}{pointer to the EDS file, \code{quants_mat.gz}}
+\item{countMatFilename}{pointer to the EDS file,
+\code{quants_mat.gz}}
 
-\item{tierImport}{whether the \code{countMatFilename} refers to a quants tier file}
+\item{tierImport}{whether the \code{countMatFilename}
+refers to a quants tier file}
 }
 \value{
-a genes x cells sparse matrix, of the class \code{dgCMatrix}
+a genes x cells sparse matrix,
+of the class \code{dgCMatrix}
 }
 \description{
-readEDS - a utility function for quickly reading in Alevin's EDS format
+This provides a simple utility for reading in EDS format.
+Note that most users will prefer to use tximport or tximeta.
+This function and package exist in order
+to simplify the dependency graph for other packages.
 }
 \examples{
 

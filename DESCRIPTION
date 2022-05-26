@@ -1,14 +1,21 @@
 Package: eds
-Title: eds: Reader for Alevin EDS format
-Version: 0.0.2
+Title: eds: Low-level reader for Alevin EDS format
+Version: 0.99.1
 Authors@R: c(
-    person("Avi", "Srivastava", role=c("aut","ctb")),
-    person("Michael", "Love", role=c("aut","cre"), email="michaelisaiahlove@gmail.com"))
-Maintainer: Michael Love <michaelisaiahlove@gmail.com>
-Description: Reader for Alevin EDS format.
+    person("Avi", "Srivastava", role=c("aut","cre"), email="asrivastava@cs.stonybrook.edu"),
+    person("Michael", "Love", role=c("aut","ctb")))
+Maintainer: Avi Srivastava <asrivastava@cs.stonybrook.edu>
+Description: This packages provides a single function, readEDS.
+  This is a low-level utility for reading in Alevin EDS format into R.
+  This function is not designed for end-users but instead the package
+  is predominantly for simplifying package dependency graph for other
+  Bioconductor packages.
 Depends: Matrix
 Imports: Rcpp
-Suggests: knitr
+Suggests: 
+    knitr,
+    tximportData,
+    testthat (>= 3.0.0)
 LinkingTo: Rcpp
 SystemRequirements: C++11
 License: GPL-2
@@ -18,3 +25,4 @@ biocViews: Sequencing, RNASeq, GeneExpression, SingleCell
 VignetteBuilder: knitr
 LazyData: true
 RoxygenNote: 7.1.2
+Config/testthat/edition: 3
