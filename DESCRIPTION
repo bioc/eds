@@ -4,7 +4,6 @@ Version: 0.99.1
 Authors@R: c(
     person("Avi", "Srivastava", role=c("aut","cre"), email="asrivastava@cs.stonybrook.edu"),
     person("Michael", "Love", role=c("aut","ctb")))
-Maintainer: Avi Srivastava <asrivastava@cs.stonybrook.edu>
 Description: This packages provides a single function, readEDS.
   This is a low-level utility for reading in Alevin EDS format into R.
   This function is not designed for end-users but instead the package
