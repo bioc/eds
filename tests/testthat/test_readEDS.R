@@ -1,5 +1,5 @@
 context("readEDS")
-library(fishpond)
+library(eds)
 test_that("Reading in Alevin EDS format works", {
 
   dir0 <- system.file("extdata",package="tximportData")
