@@ -1,6 +1,6 @@
 Package: eds
 Title: eds: Low-level reader for Alevin EDS format
-Version: 1.5.0
+Version: 1.6.0
 Authors@R: c(
     person("Avi", "Srivastava", role=c("aut","cre"), email="asrivastava@cs.stonybrook.edu"),
     person("Michael", "Love", role=c("aut","ctb")))
